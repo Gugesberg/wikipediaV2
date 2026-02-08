@@ -1,4 +1,6 @@
+import helpers.Attach;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
@@ -9,6 +11,14 @@ import static io.qameta.allure.Allure.step;
 
 public class   SearchTests extends BaseTest {
     MainPage mainPage = new MainPage();
+
+    @AfterEach
+    void makeAttachments() {
+        Attach.screenshotAs("Last sreenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+    }
 
     @Test
     @Owner("AlexIvanov")

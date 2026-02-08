@@ -22,13 +22,6 @@ public class BaseTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @AfterEach
-    void makeAttachments() {
-        Attach.screenshotAs("Last sreenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
 
     @AfterAll
     static void stayBrowser() {

@@ -1,5 +1,7 @@
 import com.github.javafaker.Faker;
+import helpers.Attach;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,14 @@ public class LoginTests extends BaseTest
     Faker faker = new Faker();
     String fakeLogin = faker.name().username();
     String fakePassword = faker.internet().password();
+
+    @AfterEach
+    void makeAttachments() {
+        Attach.screenshotAs("Last sreenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+    }
 
 
     @Test
