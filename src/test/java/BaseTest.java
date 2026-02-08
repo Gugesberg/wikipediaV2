@@ -12,7 +12,8 @@ public class BaseTest {
 
     @BeforeAll
     static void preTestingSettings(){
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+        Configuration.browser = "firefox";
         baseUrl = "https://ru.wikipedia.org/";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
