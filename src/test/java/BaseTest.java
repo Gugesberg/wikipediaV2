@@ -12,15 +12,10 @@ public class BaseTest {
 
     @BeforeAll
     static void preTestingSettings(){
-        WebDriverManager.chromedriver().setup();
         baseUrl = "https://ru.wikipedia.org/";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
-        System.setProperty("selenide.chromeOptionsArgs",
-                "--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--disable-extensions," +
-                        "--disable-plugins,--disable-images,--window-size=1920,1080");
-
-        Configuration.timeout = 20_000;
+        Configuration.remote  = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open(baseUrl);
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
