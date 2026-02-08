@@ -16,6 +16,11 @@ public class BaseTest {
         baseUrl = "https://ru.wikipedia.org/";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
+        System.setProperty("selenide.chromeOptionsArgs",
+                "--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--disable-extensions," +
+                        "--disable-plugins,--disable-images,--window-size=1920,1080");
+
+        Configuration.timeout = 20_000;
         open(baseUrl);
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
