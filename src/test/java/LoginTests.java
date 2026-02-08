@@ -1,5 +1,6 @@
 import com.github.javafaker.Faker;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -21,7 +22,7 @@ public class LoginTests extends BaseTest
 
 
     @Test
-    //@Disabled("проблемы с прохождением капчи")
+    @Disabled("проблемы с прохождением капчи")
     @Owner("AlexIvanov")
     @DisplayName("Успешная авторизация")
     void succsessAuthorization() {
