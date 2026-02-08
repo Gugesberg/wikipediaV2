@@ -1,13 +1,16 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
+
 
     @BeforeAll
     static void preTestingSettings(){
@@ -17,6 +20,14 @@ public class BaseTest {
         Configuration.remote  = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open(baseUrl);
         SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterEach
+    void makeAttachments() {
+        Attach.screenshotAs("Last sreenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 
     @AfterAll
