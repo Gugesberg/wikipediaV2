@@ -16,10 +16,10 @@ public class BaseTest {
 
     @BeforeAll
     static void preTestingSettings(){
-        baseUrl = "https://ru.wikipedia.org/";
+        Configuration.baseUrl = System.getProperty("baseUrl","https://ru.wikipedia.org/");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
+        Configuration.browser = System.getProperty("browser","firefox");
         Configuration.remote  = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open(baseUrl);
         DesiredCapabilities capabilities = new DesiredCapabilities();
