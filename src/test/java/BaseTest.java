@@ -12,12 +12,14 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
+    static String browser = System.getProperty("browser");
 
 
     @BeforeAll
     static void preTestingSettings(){
         baseUrl = "https://ru.wikipedia.org/";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = browser;
         Configuration.browserSize = "1920x1080";
         Configuration.remote  = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         open(baseUrl);
