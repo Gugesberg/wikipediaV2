@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
-    static String browser = System.getProperty("browser");
+    static String browser = System.getProperty("BROWSER");
 
 
     @BeforeAll
