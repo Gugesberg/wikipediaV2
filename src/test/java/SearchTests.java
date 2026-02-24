@@ -2,6 +2,7 @@ import helpers.Attach;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
 
@@ -22,6 +23,7 @@ public class   SearchTests extends BaseTest {
 
     @Test
     @Owner("AlexIvanov")
+    @Tag("smoke")
     @DisplayName("Поиск статьи о Пушкине")
     void searchPageAboutPushkin(){
         step("Вбиваем в строку поиска текст 'Пушкин' и нажимаем на Enter" , () -> {
