@@ -1,18 +1,24 @@
-package ApiTests;
+package apiTests;
 
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 
 public class PushkinSearchTest {
 
     @Test
-    void chechExtract(){
-        get("https://ru.wikipedia.org/api/rest_v1/page/summary/%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD?redirect=false")
+    void chechDescription(){
+        given()
+                .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+                .param("redirect", "false")
+                .when()
+                .get("https://ru.wikipedia.org/api/rest_v1/page/summary/Пушкин?redirect=false")
                 .then()
+                .log().all()
                 .statusCode(200)
-                .body("descriptio",equalTo("русский поэт, драматург и прозаик (1799–1837)"));
+                .body("description",equalTo("русский поэт, драматург и прозаик (1799–1837)"));
 
     }
 }

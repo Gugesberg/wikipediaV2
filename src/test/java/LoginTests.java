@@ -11,6 +11,8 @@ import pages.MainPage;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static io.restassured.RestAssured.get;
+import static org.hamcrest.Matchers.equalTo;
 import static pages.LoginPage.validPassword;
 import static pages.LoginPage.validUserName;
 
@@ -106,4 +108,16 @@ public class LoginTests extends BaseTest
         });
     }
 
+    public static class PushkinSearchTest {
+
+        @Test
+        void chechExtract(){
+            get("https://ru.wikipedia.org/api/rest_v1/page/summary/%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD?redirect=false")
+                    .then()
+                    .statusCode(200)
+                    .log().all()
+                    .body("description",equalTo("русский поэт, драматург и прозаик (1799–1837)"));
+
+        }
+    }
 }
