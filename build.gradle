@@ -34,7 +34,8 @@ dependencies {
             'com.github.javafaker:javafaker:1.0.2',
             'org.aspectj:aspectjweaver:1.9.22',
             'io.rest-assured:rest-assured:6.0.0',
-            'io.rest-assured:json-schema-validator:6.0.0'
+            'io.rest-assured:json-schema-validator:6.0.0',
+            'io.qameta.allure:allure-rest-assured:2.33.0'
 
 
     )
