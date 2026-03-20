@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 
-public class PushkinSearchTest {
+public class SearchTests {
     static String BaseURL = "https://ru.wikipedia.org/api/rest_v1";
 
     @Test
